@@ -32,8 +32,16 @@ public class UsuarioGatewayImpl implements UsuarioGateway {
     }   
 
     @Override
-    public boolean existeEmail(String email) {
+    public Boolean existeEmail(String email) {
         return repository.existsByEmail(email);
+    }
+
+    @Override
+    public Usuario buscarUsuarioPorEmail(String email) {
+
+        return repository.findByEmail(email)
+                .map(mapper::toDomain)
+                .orElse(null);
     }
 
     @Override

@@ -11,11 +11,14 @@ import com.cleantemplate.base.domain.entities.Usuario;
 public interface UsuarioGateway {
     Usuario salvar(Usuario usuario);
 
-    boolean existeEmail(String email);
+    Boolean existeEmail(String email);
 
     List<Usuario> listarUsuarios();
 
     Usuario atualizar(Long id, AtualizarUsuarioDTO usuario);
 
     void deletar(Long id);
+
+    Usuario buscarUsuarioPorEmail(String email);
+
 }
