@@ -3,6 +3,7 @@ package com.cleantemplate.base.presentation.controllers;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import com.cleantemplate.base.application.dto.AtualizarUsuarioDTO;
 import com.cleantemplate.base.application.dto.CriarUsuarioDTO;
 import com.cleantemplate.base.application.usecases.AtualizarUsuarioUseCase;
 import com.cleantemplate.base.application.usecases.CriarUsuarioUseCase;
+import com.cleantemplate.base.application.usecases.DeletarUsuarioUseCase;
 import com.cleantemplate.base.application.usecases.ListarUsuarioUseCase;
 import com.cleantemplate.base.domain.entities.Usuario;
 import com.cleantemplate.base.infrastructure.persistence.mappers.UsuarioMapper;
@@ -29,14 +31,18 @@ public class UsuarioController {
     private final CriarUsuarioUseCase criarUseCase;
     private final ListarUsuarioUseCase listarUsuarioUseCase;
     private final AtualizarUsuarioUseCase atualizarUsuarioUseCase;
+    private final DeletarUsuarioUseCase deletarUsuarioUseCase;
     private final UsuarioMapper mapper;
     
 
     public UsuarioController(CriarUsuarioUseCase criarUseCase, ListarUsuarioUseCase listarUsuarioUseCase,
-        AtualizarUsuarioUseCase atualizarUsuarioUseCase, UsuarioMapper mapper) {
+            AtualizarUsuarioUseCase atualizarUsuarioUseCase, DeletarUsuarioUseCase deletarUsuarioUseCase,
+            UsuarioMapper mapper) {
+
         this.criarUseCase = criarUseCase;
         this.listarUsuarioUseCase = listarUsuarioUseCase;
         this.atualizarUsuarioUseCase = atualizarUsuarioUseCase;
+        this.deletarUsuarioUseCase = deletarUsuarioUseCase;
         this.mapper = mapper;
     }
 
@@ -60,6 +66,7 @@ public class UsuarioController {
         .map(mapper::toResponse)
         .toList();
     }
+
     @PutMapping("/{id}")
     public UsuarioResponse atualizar(
         @PathVariable Long id,
@@ -70,4 +77,11 @@ public class UsuarioController {
 
         return mapper.toResponse(usuario);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletar(@PathVariable Long id) {
+        deletarUsuarioUseCase.executar(id);
+    }
+
 }

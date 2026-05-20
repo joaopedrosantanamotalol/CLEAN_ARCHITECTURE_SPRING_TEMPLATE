@@ -16,4 +16,6 @@ public interface UsuarioGateway {
     List<Usuario> listarUsuarios();
 
     Usuario atualizar(Long id, AtualizarUsuarioDTO usuario);
+
+    void deletar(Long id);
 }

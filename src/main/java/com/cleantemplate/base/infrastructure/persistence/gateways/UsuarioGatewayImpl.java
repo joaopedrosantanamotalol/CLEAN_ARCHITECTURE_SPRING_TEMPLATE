@@ -58,4 +58,9 @@ public class UsuarioGatewayImpl implements UsuarioGateway {
 
     }
 
+    @Override
+    public void deletar(Long id){
+        repository.deleteById(id);
+    }
+
 }
