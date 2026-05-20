@@ -555,20 +555,3 @@ Entidade de domínio com @Entity do JPA
 @Entity
 class Usuario
 ```
-
----
-
-# Seu projeto atualmente
-
-Você já possui:
-
-* separação por camadas
-* use cases
-* gateway
-* mapper
-* DTOs
-* responses
-* entities separadas
-* controller limpo
-
-Isso já está bem próximo de uma Clean Architecture real usada em projetos profissionais Spring Boot.
