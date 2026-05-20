@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 public record CriarUsuarioDTO(
 
  @NotBlank
+    @NotBlank
     String nome,
 
     @NotBlank
