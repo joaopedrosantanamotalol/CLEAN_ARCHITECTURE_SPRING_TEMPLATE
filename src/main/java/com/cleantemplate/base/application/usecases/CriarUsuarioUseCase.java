@@ -21,7 +21,6 @@ public class CriarUsuarioUseCase {
         this.gateway = gateway;
         this.passwordEncoder = passwordEncoder;
     }
-
     
 
     public Usuario execute(Usuario usuario) {
