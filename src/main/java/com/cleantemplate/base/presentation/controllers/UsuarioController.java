@@ -1,7 +1,6 @@
 package com.cleantemplate.base.presentation.controllers;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,10 +20,8 @@ import com.cleantemplate.base.application.usecases.CriarUsuarioUseCase;
 import com.cleantemplate.base.application.usecases.DeletarUsuarioUseCase;
 import com.cleantemplate.base.application.usecases.ListarUsuarioUseCase;
 import com.cleantemplate.base.domain.entities.Usuario;
-import com.cleantemplate.base.domain.services.CryptoService;
 import com.cleantemplate.base.infrastructure.persistence.mappers.UsuarioMapper;
 import com.cleantemplate.base.presentation.response.UsuarioResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.validation.Valid;
 

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdviceAdapter;
 
 import com.cleantemplate.base.domain.services.CryptoService;
-import com.cleantemplate.base.presentation.controllers.AuthController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ControllerAdvice
